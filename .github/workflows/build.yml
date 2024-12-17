@@ -1,9 +1,8 @@
 name: build
 
 on:
-  push:
-    tags-ignore:
-      - '!v*.*.*'
+  release:
+    types: [published]
 
 jobs:
   build-clients-macOS:
@@ -162,8 +161,3 @@ jobs:
           darwin_arm64
           darwin_amd64
 
-    - name: Update version info
-      env:
-        RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-      run: |
-        curl -X POST -H "Authorization: $RELEASE_TOKEN" --retry 10 -m 60 -o /dev/null https://1248.ink/spark/release > /dev/null 2>&1
