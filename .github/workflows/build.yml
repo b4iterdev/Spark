@@ -136,7 +136,6 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        body_path: CHANGELOG.md
         files: |
           releases/server_darwin_arm64.tar.gz
           releases/server_darwin_amd64.tar.gz
