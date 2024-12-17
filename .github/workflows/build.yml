@@ -117,11 +117,6 @@ jobs:
         chmod +x ./scripts/build.server.sh
         ./scripts/build.server.sh
 
-    - name: Prepare release note
-      run: |
-        export REF_NAME=`git describe --tags`
-        node ./scripts/release.js $REF_NAME
-
     - name: Pack releases
       run: |
         mv ./built ./releases/built
